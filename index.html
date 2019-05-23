@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/> <!--For devices-->
+  
+  <title>A Books</title>
+  <link rel="icon" type="image/ico" href="Imagenes/logo.ico" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/fontawesome-all.css" rel="stylesheet" />
+  <link href="css/materialize-social.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/font-awesome.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+ 
+</head>
+
+<body>
+
+  <!--NAV-->
+
+  <nav class="nav-extended blue-grey darken-4 sidenav-trigger" role="navigation">
+      <div class="nav-wrapper" >
+        <a class="sidenav-trigger" data-target="mobile-demo"><i class="material-icons">menu</i></a>
+    
+        <a class="sidenav-trigger right" data-target="mobile-demo1"><i class="material-icons">account_circle</i></a>
+        <ul role="menu" id="nav-mobile" class="hide-on-med-and-down">
+            <li role="none" role="tab" class="tab"><button id="inicio" class="waves-effect waves-light btn modal-trigger" href="#Iniciar_Sesion" role="button" aria-pressed="false" role="menuitem">Iniciar Sesión</button></li> 
+            <li role="none" role="tab" class="tab"><button id="registro" class="waves-effect waves-light btn modal-trigger" href="#Registrarse" role="button" aria-pressed="false" role="menuitem">Registrarse</button></li>  
+            <button id = "btnLogout" class="btn btn-action hide">Logout</button>             
+        </ul>
+      </div>
+
+      <div class="nav-wrapper" >
+        <ul role="none" id="nav-mobile" class="left hide-on-med-and-down">      
+            <li role="presentation" tabindex="0" role="tab" aria-selected="true" class="tab"><a class="active" href="index.html"> Inicio </a></li>
+            <li role="presentation" tabindex="-1" role="tab" class="tab"><a href="#"> Mi Biblioteca </a></li>
+            <li role="presentation" tabindex="-1" role="tab" class="tab"><a href="#"> AudioLibros </a></li>
+          </ul>
+  
+        </div>
+
+      <div class="nav-wrapper">
+        <form role="search">
+          <div class="input-field">
+            <input id="search" type="search" aria-label="search text" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>       
+        </form>
+      </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+      <li role="presentation" tabindex="0" role="tab" aria-selected="true" class="tab"><a class="active" href="index.html"> Inicio </a></li>
+      <li role="presentation" tabindex="-1" role="tab" class="tab"><a href="#"> Mi Biblioteca </a></li>
+      <li role="presentation" tabindex="-1" role="tab" class="tab"><a href="#"> AudioLibros </a></li>
+    </ul>
+
+
+    <ul class="sidenav" id="mobile-demo1">
+            <li role="none" role="tab" class="tab"><button id="inicio" class="waves-effect waves-light btn modal-trigger" href="#Iniciar_Sesion" role="button" aria-pressed="false" role="menuitem">Iniciar Sesión</button></li> 
+            <li role="none" role="tab" class="tab"><button id="registro" class="waves-effect waves-light btn modal-trigger" href="#Registrarse" role="button" aria-pressed="false" role="menuitem">Registrarse</button></li>  
+            <button id = "btnLogout" class="btn btn-action hide">Logout</button>             
+    </ul>
+
+  <!--Modals-->
+  
+  <!--Iniciar Sesion-->
+  <div role="dialog" id="Iniciar_Sesion" class="modal">
+    <h1 id="regylog_h1"  aria-level="1">Inicio de Sesión</h1>
+    <div class="alert_correcto_i" aria-live="assertive">Ha iniciado sesión correctamente</div>
+    <div class="alert_correo_i" aria-live="assertive">No se ha podido encontrar su cuenta</div>
+    <div class="alert_contraseña_i" aria-live="assertive">Contraseña incorrecta. Vuelva a intentarlo.</div>
+    <div role="form" aria-labelledby="iniciar">
+    <form id="iniciar" for="iniciar">
+      
+      <div class="w3l-form-group">
+        <label>Correo electrónico:</label>
+        <div class="group">
+          <i class="material-icons">email</i>
+          <input id="txtEmail_i" type="email" placeholder="Email" role="alert" aria-live="assertive" aria-required="true">
+        </div>
+      </div>
+      <div class=" w3l-form-group">
+        <label>Contraseña:</label>
+        <div class="group">
+          <i class="fas fa-unlock"></i>
+          <input id="txtPassword_i" type="password" placeholder="Contraseña" role="alert" aria-live="assertive" aria-required="true">
+        </div>
+      </div>   
+      <button id="btnLogin" class="btn btn-action" aria-controls="iniciar" role="button" aria-pressed="false">Iniciar Sesión</button>
+      <button class="material-icons" role="button" aria-pressed="false" onclick="self.close()">close</button>
+    </form>  
+  </div>
+  </div>
+
+  <!--Registro-->
+  <div role="dialog" id="Registrarse" class="modal">
+      <h1 id="regylog_h1" aria-level="1">Registro</h1>
+      <div class="alert_correcto_r"  aria-live="assertive">Se ha registrado correctamente</div>
+      <div class="alert_correo_r" aria-live="assertive">Su cuenta de correo no es válido</div>
+      <div class="alert_contraseña_r" aria-live="assertive">Contraseña inválida, debe tener como mínimo 6 caracteres. Vuelva a intentarlo.</div>
+      <div class="alert_contraseña_rep" aria-live="polite">Contraseña incorrecta, debe coincidir con la contraseña anterior. Vuelva a intentarlo.</div>
+      <div role="form" aria-labelledby="registrar">
+      <form id="registrar" for="registrar">       
+        <div class="w3l-form-group">
+          <label>Nombre:</label>
+          <div class="group">
+            <i class="fas fa-user"></i>
+            <input id="nombre" type="text" placeholder="Nombre" role="alert" aria-live="assertive"/>
+          </div>
+        </div>
+        <div class="w3l-form-group">
+          <label>Apellidos:</label>
+          <div class="group">
+            <i class="fas fa-user"></i>
+            <input id="apellidos" type="text" placeholder="Apellidos" role="alert" aria-live="assertive"/>
+          </div>
+        </div>
+        <div class="w3l-form-group">
+          <label>Correo electrónico:</label>
+          <div class="group">
+            <i class="material-icons">email</i>
+            <input id="txtEmail" type="email" placeholder="Email" role="alert" aria-live="assertive" aria-required="true">
+          </div>
+        </div>
+        <div class=" w3l-form-group">
+          <label>Contraseña:</label>
+          <div class="group">
+            <i class="fas fa-unlock"></i>
+            <input id="txtPassword" type="password" placeholder="Contraseña" role="alert" aria-live="assertive" aria-required="true">
+          </div>
+        </div>  
+        <div class=" w3l-form-group">
+            <label>Repetir contraseña:</label>
+            <div class="group">
+              <i class="fas fa-unlock"></i>
+              <input id="contraseña_r" type="password" placeholder="Repetir contraseña" role="alert" aria-live="assertive" aria-required="true"/>
+            </div>
+        </div> 
+        <button id="btnSignUp" class="btn btn-secondary" aria-controls="registrar" role="button" aria-pressed="false">Registrarse</button>        
+        <button class="material-icons" role="button" aria-pressed="false" onclick="self.close()">close</button>
+      </form>
+    </div>
+    </div>
+  
+    
+
+  <!--FOTO PRESENTACION + LOGO-->
+
+  <div id="index-banner" role="banner">
+      <div class="section no-pad-bot">
+        <div class="container">     
+          <div class="row center">
+            <img id="logo" class="responsive-img" src="Imagenes/logo.jpg" alt="" class="center">
+          </div>
+        </div>
+      </div>
+      
+     <!-- <div class="parallax"><img id="img_arbol" class="responsive-img" src="Imagenes/background1.jpg" alt="Unsplashed background img 1"></div>-->
+    </div>
+    <div>
+      <h1>ABOOKS - Descubre en nuestra página los mejores libros.</h1>
+     
+      </div>
+ 
+<!--Contenido principal de la pagina-->
+<div role="main">
+
+  <!--lEFT COLUMN-->
+  <!--TAMBIEN SE PUEDE HACER CON BADGES-COLLECTIONS-->
+<div class="row">
+  <div role="complementary" class="col s12 m4 l2" >
+   <aside >
+       
+      <table class="data" role="grid" aria-labelledby="gridLabel">
+        
+            <thead>
+              <tr> 
+                <th> 
+                  <h2 tabindex="0" id="gridLabel">Géneros</h2>
+                </th>
+              </tr>
+            </thead>
+          
+              <tbody>
+              
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">flight</i> Aventuras</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">person</i> Biografías y memorias</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">brightness_2</i> Ciencia ficción y fantasía</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">description</i> Cómics y novelas gráficas</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">book</i> Educación</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">child_care</i> Infantil</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">computer</i> Informática e Internet</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">supervisor_account</i> Juvenil</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">smoking_rooms</i> Misterio y Suspense</td>
+                </tr>
+                <tr>
+                  <td tabindex="0"><i aria-hidden="true" class="tiny material-icons">favorite</i> Romance</td>
+                </tr>            
+              </tbody>
+      </table>
+    </aside>
+  </div>
+  
+  
+<!--CENTER COLUMN-->
+
+<div  class="col s12 m8 l8">
+
+  <div id="azucar" role="heading">
+  <h2 tabindex="0" aria-level="2">Novedades y tendencias</h2>
+  <h3 tabindex="0" aria-level="3">Novedades y títulos de actualidad</h3>
+</div>
+  <hr>
+
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img class="responsive-img" src="Imagenes/mentiras.jpg"></a>
+    <a class="carousel-item" href="#two!"><img class="responsive-img" src="Imagenes/malos.jpg"></a>
+    <a class="carousel-item" href="#three!"><img class="responsive-img" src="Imagenes/papel.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/red.jpg"></a>
+    <a class="carousel-item" href="#five!"><img class="responsive-img" src="Imagenes/fragil.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/metros.jpg"></a>
+  </div>
+
+  <h2 tabindex="0">Próximamente</h2>
+  <h3 tabindex="0">Pide libros y recíbelos cuando se publiquen</h3>
+  <hr>
+
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img class="responsive-img" src="Imagenes/juntos.jpg"></a>
+    <a class="carousel-item" href="#two!"><img class="responsive-img" src="Imagenes/tierra.jpg"></a>
+    <a class="carousel-item" href="#three!"><img class="responsive-img" src="Imagenes/humo.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/descubrir.jpg"></a>
+    <a class="carousel-item" href="#five!"><img class="responsive-img" src="Imagenes/tiempo.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/sombra.jpg"></a>
+  </div>
+
+  <h2 tabindex="0">Nuestras recomendaciones</h2>
+  <h3 tabindex="0">Libros que nos han encantado</h3>
+  <hr>
+
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img class="responsive-img" src="Imagenes/after.jpg"></a>
+    <a class="carousel-item" href="#two!"><img class="responsive-img" src="Imagenes/chicos.jpg"></a>
+    <a class="carousel-item" href="#three!"><img class="responsive-img" src="Imagenes/it.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/estrella.jpg"></a>
+    <a class="carousel-item" href="#five!"><img class="responsive-img" src="Imagenes/tren.jpg"></a>
+    <a class="carousel-item" href="#four!"><img class="responsive-img" src="Imagenes/got.jpg"></a>
+  </div>
+</div>
+
+<!--RIGHT COLUMN-->
+<div class="col s12 m12 l2">
+<aside>
+    <h4 tabindex="0"> Enlaces de interes</h4>
+      <a href="https://www.elle.com/es/recomendaciones-libros/"><img class="responsive-img" src="Imagenes/elle.png"></a>
+      <a href="http://kiosco.net/"><img class="responsive-img" src="Imagenes/kiosco.png"></a>
+      <a href="https://www.librofilia.com/"><img class="responsive-img" src="Imagenes/filia.png"></a>
+      <a href="https://www.apple.com/es/apple-books/"><img class="responsive-img" src="Imagenes/books.png"></a>
+        
+    <h5 tabindex="0">Compra de libros</h5>
+      <a href="https://www.24symbols.com/?locale=es"><img class="responsive-img" src="Imagenes/24.png"></a>
+      <a href="https://www.iberlibro.com/libros/comprar-libros-online/index.shtml"><img class="responsive-img" src="Imagenes/iber.png"></a>
+      <a href="https://www.casadellibro.com/"><img class="responsive-img" src="Imagenes/casa.png"></a>         
+</aside>
+</div>
+</div>
+
+</div>
+ <!--FOOTER-->
+
+<footer class="page-footer blue-grey darken-4">
+    <div class="container">
+      <div class="row">
+          <div class="col l4 s6">
+              <h5 tabindex="0" class="white-text">Contacta con nosotros</h5>
+              <ul role="none">
+                <li tabindex="0"><p>Teléfono: +34 822 46 72 30</p></li>
+                <li tabindex="0"><p>Correo: abooks@gmail.com</p></li>
+              </ul>
+            </div>
+        <div class="col l4  s12">
+          <h5 tabindex="0" class="white-text">Sobre nosotros</h5>
+          <p tabindex="0" class="grey-text text-lighten-4">A Books publica a diario un importante abanico de los mejores libros</p>
+        </div>
+        <div class="col l4  s6">
+          <h5 tabindex="0" aria-level="5" class="white-text">Síguenos en</h5>
+          <ul role="none">
+              <li><a class="waves-effect waves-light btn-floating social facebook"><i tabindex="0" aria-label="facebook" class="fa fa-facebook"></i></a> </li>
+              <li><a class="waves-effect waves-light btn-floating social instagram"><i tabindex="0" aria-label="instagram" class="fa fa-instagram"></i></a></li>
+              <li><a class="waves-effect waves-light btn-floating social twitter"><i tabindex="0" aria-label="twitter" class="fa fa-twitter"></i></a></li>
+              <li><a class="waves-effect waves-light btn-floating social tumblr"><i tabindex="0" aria-label="tumblr" class="fa fa-tumblr"></i></a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div tabindex="0" class="container">
+        Copyright © 2019 ABOOKS. Todos los derechos reservados
+      </div>
+    </div>
+</footer>
+
+<!--JavaScript-->
+  
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+  <script src="js/auth.js"></script>
+  <script src="js/formulario.js"></script>
+  
+
+</body>
+</html>
